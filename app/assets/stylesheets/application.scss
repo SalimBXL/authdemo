@@ -1,0 +1,16 @@
+// Sassy
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+
+html {
+    background-color: rgb(49, 49, 49);
+    color: aquamarine;
+}
+
+.pink {
+    color: palevioletred;
+}
+
+.grey {
+    color: cadetblue;
+    font-weight: bold;
+}
