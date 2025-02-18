@@ -385,7 +385,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.7.1)
+    zeitwerk (2.7.2)
 
 PLATFORMS
   aarch64-linux
@@ -426,4 +426,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.6.3
+   2.5.22
