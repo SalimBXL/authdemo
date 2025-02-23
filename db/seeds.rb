@@ -10,7 +10,7 @@
 
 
 # Create some statuses
-["New", "In Progress", "Done", "Delayed"].each do |level|
+[ "New", "In Progress", "Done", "Delayed" ].each do |level|
     Level.find_or_create_by!(level: level)
 end
 
@@ -24,7 +24,7 @@ admin = User.find_or_create_by!(email_address: "el.salim.salim@gmail.com") do |u
 end
 
 # Create a default user
-user = User.find_or_create_by!(email_address: "john.vannamen@hubruxelles.be") do |user| 
+user = User.find_or_create_by!(email_address: "john.vannamen@hubruxelles.be") do |user|
     user.password = "password"
     user.password_confirmation = "password"
     user.admin = false
