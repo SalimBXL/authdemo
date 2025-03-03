@@ -1,17 +1,7 @@
-html {
-    background-color: rgb(49, 49, 49);
-    color: aquamarine;
+body {
+    background-color: lightgrey;
 }
 
-#dashboard {
-    background-color: rgb(61, 61, 61);
-    color: palevioletred;
-}
-
-.pink {
-    color: palevioletred;
-}
-
-.boldy {
-    color: cadetblue;
+header {
+    background-color: lightgrey;
 }

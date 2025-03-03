@@ -27,14 +27,39 @@
 
   <body>
 
-    <!-- Top container -->
-    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-      <button 
-        class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
-        <i class="fa fa-bars"></i> Menu
-      </button>
-      <span class="w3-bar-item w3-right">John's Projects</span>
-    </div>
+
+    <header class="w3-bar w3-border">
+      <%= image_tag 'logo.svg', alt: 'LOGO', class: "w3-bar-item w3-left", style: "height: 150px" %>
+      <div class="w3-bar-item w3-left w3-right-align">
+        <h1>John's Projects</h1>
+        <span>v25.0</span>
+      </div>
+      <div class="w3-bar-item w3-right">
+        <table class="w3-table">
+          <tr>
+            <td class="w3-right-align">150</td>
+            <td class="w3-left-align">Déviation</td>
+            <td>&nbsp;</td>
+            <td><span class="w3-tag w3-round w3-green w3-center">XX</span></td>
+            <td class="w3-right-align">673</td>
+          </tr>
+          <tr>
+            <td class="w3-right-align">6</td>
+            <td class="w3-left-align">Autre</td>
+            <td>&nbsp;</td>
+            <td><span class="w3-tag w3-round w3-orange w3-center">YY</span></td>
+            <td class="w3-right-align">8</td>
+          </tr>
+          <tr>
+            <td class="w3-right-align">12</td>
+            <td class="w3-left-align">Divers</td>
+            <td>&nbsp;</td>
+            <td><span class="w3-tag w3-round w3-red w3-center">ZZ</span></td>
+            <td class="w3-right-align">21</td>
+          </tr>
+        </table>
+      </div>
+    </header>
 
     <main class="w3-container">
       <%= yield %>
