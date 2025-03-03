@@ -7,63 +7,15 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :w3, :application, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
   </head>
-
   <body>
-
-
-    <header class="w3-bar w3-border">
-      <%= image_tag 'logo.svg', alt: 'LOGO', class: "w3-bar-item w3-left", style: "height: 150px" %>
-      <div class="w3-bar-item w3-left w3-right-align">
-        <h1>John's Projects</h1>
-        <span>v25.0</span>
-      </div>
-      <div class="w3-bar-item w3-right">
-        <table class="w3-table">
-          <tr>
-            <td class="w3-right-align">150</td>
-            <td class="w3-left-align">Déviation</td>
-            <td>&nbsp;</td>
-            <td><span class="w3-tag w3-round w3-green w3-center">XX</span></td>
-            <td class="w3-right-align">673</td>
-          </tr>
-          <tr>
-            <td class="w3-right-align">6</td>
-            <td class="w3-left-align">Autre</td>
-            <td>&nbsp;</td>
-            <td><span class="w3-tag w3-round w3-orange w3-center">YY</span></td>
-            <td class="w3-right-align">8</td>
-          </tr>
-          <tr>
-            <td class="w3-right-align">12</td>
-            <td class="w3-left-align">Divers</td>
-            <td>&nbsp;</td>
-            <td><span class="w3-tag w3-round w3-red w3-center">ZZ</span></td>
-            <td class="w3-right-align">21</td>
-          </tr>
-        </table>
-      </div>
-    </header>
-
-    <main class="w3-container">
-      <%= yield %>
-    </main>
-    
+    <%= render "layouts/header" %>
+    <%= render "layouts/main" %>      
   </body>
 </html>
