@@ -6,13 +6,3 @@ body {
 header {
     background-color: lightgrey;
 }
-
-.annee {
-    font-size: small;
-}
-.mois {
-    font-size: medium;
-}
-.jour {
-    font-size: x-large;
-}
