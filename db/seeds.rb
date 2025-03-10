@@ -40,8 +40,6 @@ end
 # Create a default project
 project = Project.find_or_create_by!(name: "Project 1") do |project|
     project.description = "This is a project"
-    project.start_date = Date.today
-    project.end_date = Date.today + 1.month
     project.user = user
 end
 

@@ -1,0 +1,7 @@
+<h1>Projects</h1>
+<h2><%= @project.name %></h2>
+<p><%= @project.description %></p>
+<p><%= @project.user.full_name %></p>
+<p><%= link_to "Edit", edit_project_path(@project) %></p>
+<p><%= link_to "Destroy", @project, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+<p><%= link_to "Back", projects_path %></p>
