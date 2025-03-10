@@ -1,20 +1,12 @@
-<h1>Projects</h1>
+<% content_for :title, "Editing project" %>
 
-<h2><%= @project.name %></h2>
-<p><%= @project.description %></p>
-<p><%= @project.user.full_name %></p>
-<p><%= link_to "Edit", edit_project_path(@project) %></p>
-<p><%= link_to "Destroy", @project, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-<p><%= link_to "Back", projects_path %></p>
+<h1>Editing project</h1>
 
-<%= form_with model: @project do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-  <%= form.submit %>
-<% end %>
+<%= render "form", project: @project %>
+
+<br>
+
+<div>
+  <%= link_to "Show this project", @project %> |
+  <%= link_to "Back to projects", projects_path %>
+</div>
