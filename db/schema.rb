@@ -49,11 +49,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_23_152539) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.date "start_date"
-    t.date "end_date"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_projects_on_name", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -70,15 +69,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_23_152539) do
     t.string "name"
     t.date "start_date"
     t.date "due_date"
-    t.integer "level_id", null: false
     t.text "description"
-    t.integer "user_id"
     t.text "remarks"
     t.integer "project_id", null: false
+    t.integer "level_id", null: false
+    t.integer "user_id_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["level_id"], name: "index_tasks_on_level_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id_id"], name: "index_tasks_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,4 +98,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_23_152539) do
   add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "levels"
   add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "user_ids"
 end

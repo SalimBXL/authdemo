@@ -22,12 +22,12 @@ admin = User.find_or_create_by!(email_address: "admin@johnsproject.com") do |use
 end
 
 # Create a default user
-user1 = User.find_or_create_by!(email_address: "john.vannamen@hubruxelles.be") do |user1|
-    user1.password = "password"
-    user1.password_confirmation = "password"
-    user1.admin = false
-    user1.firstname = "John"
-    user1.lastname = "Vannamen"
+john = User.find_or_create_by!(email_address: "john.vannamen@hubruxelles.be") do |john|
+    john.password = "password"
+    john.password_confirmation = "password"
+    john.admin = false
+    john.firstname = "John"
+    john.lastname = "Vannamen"
 end
 user = User.find_or_create_by!(email_address: "el.salim.salim@gmail.com") do |user|
     user.password = "password"
@@ -49,6 +49,6 @@ task = Task.find_or_create_by!(name: "Task 1") do |task|
     task.start_date = Date.today
     task.due_date = Date.today + 1.month
     task.project = project
-    task.user = user1
+    task.user = john
     task.level = Level.find_by(level: "New")
 end

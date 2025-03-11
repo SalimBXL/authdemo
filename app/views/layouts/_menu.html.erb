@@ -1,3 +1,12 @@
 <div class="">
-    Menu
+    <div class="w3-bar-block">
+        <%= link_to '<i class="fa fa-home"></i> Home'.html_safe, dashboard_path, class: "w3-bar-item w3-button" %>
+        <%= link_to '<i class="fa fa-tachometer"></i> Dashboard'.html_safe, dashboard_path, class: "w3-bar-item w3-button" %>
+        <%= link_to '<i class="fa fa-search"></i> Search'.html_safe, projects_path, class: "w3-bar-item w3-button" %> 
+        <%= link_to '<i class="fa fa-envelope"></i> Projects'.html_safe, projects_path, class: "w3-bar-item w3-button" %> 
+        <%= link_to '<i class="fa fa-tasks"></i> Tasks'.html_safe, projects_path, class: "w3-bar-item w3-button" %> 
+        <%= link_to '<i class="fa fa-users"></i> Users'.html_safe, projects_path, class: "w3-bar-item w3-button" %> 
+        <%= link_to '<i class="fa fa-sign-in"></i> Login'.html_safe, projects_path, class: "w3-bar-item w3-button" %> 
+        <%= link_to '<i class="fa fa-sign-out"></i> Logout'.html_safe, projects_path, class: "w3-bar-item w3-button" %> 
+    </div>
 </div>
