@@ -73,12 +73,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_23_152539) do
     t.text "remarks"
     t.integer "project_id", null: false
     t.integer "level_id", null: false
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["level_id"], name: "index_tasks_on_level_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
-    t.index ["user_id_id"], name: "index_tasks_on_user_id_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,5 +98,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_23_152539) do
   add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "levels"
   add_foreign_key "tasks", "projects"
-  add_foreign_key "tasks", "user_ids"
+  add_foreign_key "tasks", "users"
 end
