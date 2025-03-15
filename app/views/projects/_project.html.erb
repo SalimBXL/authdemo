@@ -1,11 +1,21 @@
-<td>
-  <strong><%= project.name %></strong>
-</td>
+<tr id="<%= dom_id project %>">
+  <td>
+    <strong><%= project.name %></strong>
+  </td>
 
-<td>
-  <%= project.description %>
-</td>
+  <td>
+    <%= project.description %>
+  </td>
 
-<td>
-  <small>(<%= project.user.full_name %>)</small>
-</td>
+  <td>
+    <small>(<%= project.user.full_name %>)</small>
+  </td>
+  
+  <td>
+    <%= project.tasks_count %>
+  </td>
+
+  <td>
+    <%= link_to "Show this project", project %>
+  </td>
+</tr>

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+task_one:
+  name: MyString
+  description: MyText
+  remarks: MyString
+  start_date: 2025-03-15
+  due_date: 2025-03-15
+  project: project_one
+  level: 1
+  user: user_one
+  status: 1
+
+task_two:
+  name: MyString
+  description: MyText
+  remarks: MyString
+  start_date: 2025-03-15
+  due_date: 2025-03-15
+  project: project_one
+  level: 1
+  user: user_two
+  status: 1

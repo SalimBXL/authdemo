@@ -1,23 +1,32 @@
+<% content_for :title, "Dashboard" %>
+
+<h1><i class="fa fa-tachometer"></i> Dashboard</h1>
+
+<p>Hello <%= Current.user.user_name %></p>
+
 <div class="w3-container">
-  
-    <div class="w3-panel w3-card w3-round w3-cell-row w3-padding w3-light-grey">
-        <div class="w3-cell w3-padding w3-left w3-tag w3-round w3-orange icone">
-            YY
-        </div>
+    <% Current.user.tasks_for_current_user.each do |task| %>
+        <div class="w3-panel w3-card w3-round w3-cell-row w3-padding w3-light-grey">
+            <div class="w3-cell w3-left icone">
+                <%= format_level_color(task.level) %>
+            </div>
 
-        <div class="w3-cell w3-padding w3-left">
-            16 JAN 2020
-        </div>
-        
-        <div class="w3-cell w3-padding w3-left">
-            <h1>TITRE</h1>
-            <p>Content</p>
-            <p>Signature #Tag #Tag</p>
-        </div>
+            <div class="w3-cell w3-padding w3-left">
+                <span class="w3-xxlarge"><%= task.start_date.strftime("%d") %></span><br>
+                <span class="w3-xlarge"><%= task.start_date.strftime("%b") %></span><br>
+                <span class="w3-large"><%= task.start_date.strftime("%Y") %></span><br>
+            </div>
+            
+            <div class="w3-cell w3-padding w3-left">
+                <h1><%= task.name %></h1>
+                <p><%= task.description %></p>
+                <p><small>Remark : <%= task.remarks %></small></p>
+                <p><small><%= task.project.name %></small></p>
+            </div>
 
-        <div class="w3-cell w3-padding w3-left">
-            Misc
+            <div class="w3-cell w3-padding w3-right">
+                <%= format_enum task.status %>
+            </div>
         </div>
-    </div>
-
+    <% end %>
 </div>

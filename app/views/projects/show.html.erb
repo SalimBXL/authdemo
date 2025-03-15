@@ -1,10 +1,47 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @project %>
+<div id="<%= dom_id @project %>">
+  <h3>
+    <strong><%= @project.name %></strong>
+  </h3>
+
+  <h4>Details</h4>
+  
+  <p>
+    <%= @project.description %><br>
+    <p><u>Owner</u> : <%= @project.user.full_name %></p>
+  </p>
+  
+</div>
+
+<h4>Tasks</h4>
+<table class="w3-table-all">
+  <thead>
+    <tr class="w3-light-grey">
+      <th>Name</th>
+      <th>Assigned to</th>
+      <th>Status</th>
+    </tr>
+  <thead>
+  <% @project.tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %></td>
+      <td><%= task.user.full_name %></td>
+      <td><%= task.status %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Collaborators</h4>
+
+<ul>
+  <% @project.users.each do |user| %>
+    <li><%= user.full_name %> (<%= user.tasks.count %>)</li>
+  <% end %>
+</ul>
 
 <div>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>
-
   <%= button_to "Destroy this project", @project, method: :delete %>
 </div>

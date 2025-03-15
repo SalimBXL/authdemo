@@ -8,4 +8,7 @@ class PagesController < ApplicationController
   def dashboard
     redirect_to new_session_path unless authenticated?
   end
+
+  def search
+  end
 end

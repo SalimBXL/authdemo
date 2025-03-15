@@ -1,21 +1,19 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Projects" %>
 
-<p>
-  <%= projects_url %>
-</p>
+<h1><i class="fa fa-envelope"></i> Projects</h1>
 
-<h1>Projects</h1>
-
-<table id="projects" class="w3-table-striped">
-  <% @projects.each do |project| %>
-    <tr id="<%= dom_id project %>">
-      <%= render project %>
-      <td>
-        <%= link_to "Show this project", project %>
-      </td>
+<table id="projects" class="w3-table-all">
+  <thead>
+    <tr class="w3-light-grey">
+      <th>Name</th>
+      <th>Description</th>
+      <th>User</th>
+      <th>Tasks</th>
+      <th>Actions</th>
     </tr>
+  <thead>
+  <% @projects.each do |project| %>
+    <%= render project %>
   <% end %>
 </table>
 

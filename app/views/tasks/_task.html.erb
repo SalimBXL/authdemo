@@ -1,0 +1,35 @@
+<tr id="<%= dom_id task %>">
+
+  <td>
+    <%= task.name %>
+  </td>
+
+  <td>
+    <%= task.project.name %>
+  </td>
+
+  <td>
+    <%= task.description %>
+  </td>
+
+  <td>
+    <%= task.user.full_name %>
+  </td>
+
+  <td>
+    <%= task.due_date %>
+  </td>
+
+  <td>
+    <%= format_enum task.level %>
+  </td>
+
+  <td>
+    <%= format_enum task.status %>
+  </td>
+
+  <td>
+    <%= link_to "Show this task", task %>
+  </td>
+
+</tr>

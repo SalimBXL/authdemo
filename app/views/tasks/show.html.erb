@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>
+  <%= @task.name %>
+</h1>
+
+<p>
+  <%= @task.description %>
+</p>
+
+<p>
+  <u>Remarks:</u>
+<%= @task.remarks %>
+</p>
+
+<p>
+<strong>Start date:</strong>
+<%= @task.start_date %>
+</p>
+
+<p>
+<strong>Due date:</strong>
+<%= @task.due_date %>
+</p>
+
+<p>
+<strong>Project:</strong>
+<%= @task.project.name %>
+</p>
+
+<p>
+<strong>Level:</strong>
+<%= @task.level %>
+</p>
+
+<p>
+<strong>User:</strong>
+<%= @task.user.full_name %>
+</p>
+
+<p>
+<strong>Status:</strong>
+<%= @task.status %>
+</p>
+
+
+
+<div>
+  <%= link_to "Edit this task", edit_task_path(@task) %> |
+  <%= link_to "Back to tasks", tasks_path %>
+
+  <%= button_to "Destroy this task", @task, method: :delete %>
+</div>

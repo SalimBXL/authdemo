@@ -12,24 +12,42 @@
                 <td class="w3-right-align">150</td>
                 <td class="w3-left-align">Déviation</td>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td><span class="w3-tag w3-round w3-green w3-center">XX</span></td>
-                <td class="w3-right-align">673</td>
+                <td>
+                    <span class="w3-tag w3-round w3-green w3-center">
+                    <%= format_enum shorten1 Task.levels.key(0) %>
+                    </span>
+                </td>
+                <td class="w3-right-align">
+                    <%= Task.low_level_count %>
+                </td>
             </tr>
 
             <tr>
                 <td class="w3-right-align">6</td>
                 <td class="w3-left-align">Autre</td>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td><span class="w3-tag w3-round w3-orange w3-center">YY</span></td>
-                <td class="w3-right-align">8</td>
+                <td>
+                    <span class="w3-tag w3-round w3-orange w3-center">
+                    <%= format_enum shorten1 Task.levels.key(1) %>
+                    </span>
+                </td>
+                <td class="w3-right-align">
+                    <%= Task.medium_level_count %>
+                </td>
             </tr>
 
             <tr>
                 <td class="w3-right-align">12</td>
                 <td class="w3-left-align">Divers</td>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td><span class="w3-tag w3-round w3-red w3-center">ZZ</span></td>
-                <td class="w3-right-align">21</td>
+                <td>
+                    <span class="w3-tag w3-round w3-red w3-center">
+                    <%= format_enum shorten1 Task.levels.key(2) %>
+                    </span>
+                </td>
+                <td class="w3-right-align">
+                    <%= Task.high_level_count %>
+                </td>
             </tr>
         </table>
     </div>
