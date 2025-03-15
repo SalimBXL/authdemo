@@ -35,4 +35,14 @@ class TaskTest < ActiveSupport::TestCase
     task = Task.create!(name: "Task Name", project: @project, user: @user, status: :new, level: :low, start_date: Date.today - 2.months, due_date: Date.today - 1.month)
     assert task.overdue?, "Task was not detected as overdue"
   end
+
+  test "should return 0 if task is overdue" do
+    task = Task.create!(name: "Task Name", project: @project, user: @user, status: :new, level: :low, start_date: Date.today - 2.months, due_date: Date.today - 1.month)
+    assert_equal 0, task.how_many_days_before_due_date?, "Expected 0 for overdue task"
+  end
+
+  test "should return correct days if task is not overdue" do
+    task = Task.create!(name: "Task Name", project: @project, user: @user, status: :new, level: :low, start_date: Date.today, due_date: Date.today + 5.days)
+    assert_equal 5, task.how_many_days_before_due_date?, "Expected 5 days before due date"
+  end
 end

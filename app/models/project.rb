@@ -14,5 +14,4 @@ class Project < ApplicationRecord
   def tasks_count
     tasks.count
   end
-
 end
