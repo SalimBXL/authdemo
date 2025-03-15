@@ -29,6 +29,7 @@ class Task < ApplicationRecord
     if due_date.present? && start_date.present? && due_date < start_date
       errors.add(:due_date, "must be after or equal to the start date")
     end
+    due_date >= start_date
   end
 
   # Vérifie si la tâche est en retard
@@ -49,12 +50,8 @@ class Task < ApplicationRecord
   end
 
   # Retourne le nombre de jours avant la date d'échéance ou 0 si la tâche est en retard
-  def how_many_days_before_due_date
-    puts "DueDate after StartDate ? #{due_date_after_start_date}"
-    puts "Overdue ? #{overdue?}"
+  def how_many_days_before_due_date?
     days_left = (due_date - Date.today).to_i
-    puts "Days left : #{days_left}"
-    (due_date_after_start_date and not overdue?) ? (due_date - Date.today).to_i : 0
-    errors.add(:due_date, "Error")
+    (due_date_after_start_date and not overdue?) ? days_left : 0
   end
 end
