@@ -71,7 +71,7 @@ class Task < ApplicationRecord
 
   def priority
     days = how_many_days_before_due_date? > 0 ? how_many_days_before_due_date? : 1
-    status_done? ? 0 : (not overdue?) ? (0.1 * criticity / days).round(2) : 1
+    status_done? ? 0 : (not overdue?) ? (1.0 * criticity / days).round(2) : 1
   end
 
   def set_level_from_criticity
