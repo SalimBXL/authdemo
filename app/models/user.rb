@@ -9,11 +9,11 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
 
   def full_name
-    firstname.present? ? "#{firstname} #{lastname}" : email_address.split("@").first
+    (firstname.present? and lastname.present?) ? "#{firstname} #{lastname}" : email_first_part
   end
 
   def user_name
-    firstname.present? ? firstname : email_address.split("@").first
+    firstname.present? ? firstname : email_first_part
   end
 
   # Retourne la liste des tâches associées à l'utilisateur courant
@@ -25,5 +25,9 @@ class User < ApplicationRecord
 
   def password_required?
     new_record? || password.present?
+  end
+
+  def email_first_part
+    email_address.split("@").first
   end
 end

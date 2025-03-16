@@ -18,12 +18,21 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create task" do
-    assert_difference("Task.count") do
-      post tasks_url, params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+  describe "Creating a task..." do
+    it "should create task" do
+      assert_difference("Task.count") do
+        post tasks_url, params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+      end
+      assert_redirected_to task_url(Task.last)
     end
 
-    assert_redirected_to task_url(Task.last)
+    it "should not create task" do
+      assert_difference("Task.count", +0) do
+        @task.name = nil
+        post tasks_url, params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+      end
+      assert_response :unprocessable_entity
+    end
   end
 
   test "should show task" do
@@ -31,21 +40,28 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_task_url(@task)
-    assert_response :success
-  end
+  describe "Editing a task..." do
+    it "should get edit" do
+      get edit_task_url(@task)
+      assert_response :success
+    end
 
-  test "should update task" do
-    patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
-    assert_redirected_to task_url(@task)
+    it "should update task" do
+      patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+      assert_redirected_to task_url(@task)
+    end
+
+    it "should not update task" do
+      @task.name = nil
+      patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+      assert_response :unprocessable_entity
+    end
   end
 
   test "should destroy task" do
     assert_difference("Task.count", -1) do
       delete task_url(@task)
     end
-
     assert_redirected_to tasks_url
   end
 

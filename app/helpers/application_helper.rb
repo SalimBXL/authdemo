@@ -3,13 +3,13 @@ module ApplicationHelper
         enum.to_s.humanize
     end
 
-    def shorten(text, length: 100)
-        text.length > length ? "#{text[0..length]}..." : text
-    end
+    # def shorten(text, length: 100)
+    #     text.length > length ? "#{text[0..length]}..." : text
+    # end
 
-    def shorten2(text)
-        text.length > 2 ? "#{text[0..1]}" : text
-    end
+    # def shorten2(text)
+    #     text.length > 2 ? "#{text[0..1]}" : text
+    # end
 
     def shorten1(text)
         text.length > 2 ? "#{text[0..0]}" : text

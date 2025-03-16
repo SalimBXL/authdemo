@@ -54,7 +54,7 @@ class Task < ApplicationRecord
   def self.new_status_count  # Retourne le nombre de tâches avec le status "new"
     where(status: :new).count
   end
-  
+
   def self.in_progress_status_count  # Retourne le nombre de tâches avec le status "in_progress"
     where(status: :in_progress).count
   end
@@ -76,11 +76,10 @@ class Task < ApplicationRecord
 
   def set_level_from_criticity
     self.level = case self.criticity
-                  when 0..3 then :low
-                  when 4..6 then :medium
-                  when 7..10 then :high
-                  else :low
-                  end
+    when 0..3 then :low
+    when 4..6 then :medium
+    when 7..10 then :high
+    else :low
+    end
   end
-
 end

@@ -7,7 +7,7 @@ task_one:
   start_date: 2025-03-15
   due_date: 2025-03-15
   project: project_one
-  criticity: 2
+  criticity: 5
   user: user_one
   status: 1
 
