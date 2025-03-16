@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @task.set_level_from_criticity
   end
 
   # GET /tasks/1/edit
@@ -22,6 +23,7 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.set_level_from_criticity
 
     respond_to do |format|
       if @task.save
@@ -61,10 +63,11 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params.expect(:id))
+      @task.set_level_from_criticity
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.expect(task: [ :name, :description, :remarks, :start_date, :due_date, :project_id, :level, :user_id, :status ])
+      params.expect(task: [ :name, :description, :remarks, :start_date, :due_date, :project_id, :criticity, :user_id, :status ])
     end
 end

@@ -39,16 +39,86 @@ project = Project.find_or_create_by!(name: "Project 1") do |project|
   project.user = user
 end
 
-# Create a default task
-task = Task.find_or_create_by!(
+# Create a default task 1
+task1 = Task.find_or_create_by!(
   name: "Task 1",
   project: project,
   user: john,
-  level: :low,
+  criticity: 0,
   status: :new,
   start_date: Date.today,
   due_date: Date.today + 1.month
-) do |task|
-  task.description = "This is a task"
-  task.remarks = "This is a remark"
+) do |task1|
+  task1.description = "This is a task"
+  task1.remarks = "This is a remark"
+end
+
+# Create a default task 2
+task2 = Task.find_or_create_by!(
+  name: "Task 2",
+  project: project,
+  user: john,
+  criticity: 3,
+  status: :new,
+  start_date: Date.today,
+  due_date: Date.today + 1.month
+) do |task2|
+  task2.description = "This is a task"
+  task2.remarks = "This is a remark"
+end
+
+# Create a default task 3
+task3 = Task.find_or_create_by!(
+  name: "Task 3",
+  project: project,
+  user: john,
+  criticity: 5,
+  status: :new,
+  start_date: Date.today,
+  due_date: Date.today + 1.month
+) do |task3|
+  task3.description = "This is a task"
+  task3.remarks = "This is a remark"
+end
+
+# Create a default task 4
+task4 = Task.find_or_create_by!(
+  name: "Task 4",
+  project: project,
+  user: john,
+  criticity: 7,
+  status: :new,
+  start_date: Date.today,
+  due_date: Date.today + 1.month
+) do |task4|
+  task4.description = "This is a task"
+  task4.remarks = "This is a remark"
+end
+
+# Create a default task 5
+task5 = Task.find_or_create_by!(
+  name: "Task 5",
+  project: project,
+  user: user,
+  criticity: 0,
+  status: :new,
+  start_date: Date.today,
+  due_date: Date.today + 1.month
+) do |task5|
+  task5.description = "This is a task"
+  task5.remarks = "This is a remark"
+end
+
+# Create a default task 6
+task6 = Task.find_or_create_by!(
+  name: "Task 6",
+  project: project,
+  user: user,
+  criticity: 10,
+  status: :new,
+  start_date: Date.today,
+  due_date: Date.today + 1.month
+) do |task6|
+  task6.description = "This is a task"
+  task6.remarks = "This is a remark"
 end

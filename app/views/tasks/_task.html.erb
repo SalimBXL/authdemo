@@ -1,4 +1,4 @@
-<tr id="<%= dom_id task %>">
+<tr id="<%= dom_id task %>" class="<%= get_level_color(task.level) unless task.status_done? %>">
 
   <td>
     <%= task.name %>
@@ -20,8 +20,12 @@
     <%= task.due_date %>
   </td>
 
+  <td class="w3-center">
+    <%= format_enum task.criticity %>
+  </td>
+
   <td>
-    <%= format_enum task.level %>
+    <small><%= format_level_color(task.level) unless task.status_done? %></small>
   </td>
 
   <td>
@@ -32,8 +36,18 @@
     <%= task.how_many_days_before_due_date? %>
   </td>
 
+  <td class="w3-center w3-xlarge">
+    <%= '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>'.html_safe if task.overdue? %>
+  </td>
+
   <td>
-    <%= link_to "Show this task", task %>
+    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, task, class: "w3-button" %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_task_path(task), class: "w3-button" %>
+  </td>
+  <td>
+    <%= button_to '<i class="fa fa-trash"></i>'.html_safe, task, method: :delete, class: "w3-button" %>
   </td>
 
 </tr>

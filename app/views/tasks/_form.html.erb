@@ -41,11 +41,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :level %>
-    <%= form.select :level, Task.levels.keys.map { |level| [level.humanize, level] }, prompt: "Select a level" %>
-  </div>
-
-  <div class="field">
     <%= form.label :status %>
     <%= form.select :status, Task.statuses.keys.map { |status| [status.humanize, status] }, prompt: "Select a status" %>
   </div>
@@ -53,6 +48,11 @@
   <div class="field">
     <%= form.label :user_id, "User" %>
     <%= form.collection_select :user_id, User.all, :id, :full_name, prompt: "Select a user" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :criticity %>
+    <%= form.number_field :criticity, in: 0..10, step: 1 %>
   </div>
 
   <div class="actions">

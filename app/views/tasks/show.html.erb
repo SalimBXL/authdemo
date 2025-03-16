@@ -24,8 +24,24 @@
 </p>
 
 <p>
+<strong>Days before due date:</strong>
+<%= @task.how_many_days_before_due_date? %>
+<%= "(overdue)" if @task.overdue? %>
+</p>
+
+<p>
 <strong>Project:</strong>
 <%= @task.project.name %>
+</p>
+
+<p>
+<strong>Status</strong>
+<%= @task.status %>
+</p>
+
+<p>
+<strong>Criticity:</strong>
+<%= @task.criticity %>
 </p>
 
 <p>

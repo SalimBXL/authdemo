@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    email = params[:session][:email_address] # Correction pour extraire directement les paramètres
-    password = params[:session][:password]   # Correction pour extraire directement les paramètres
+    email = params[:email_address] # Correction pour extraire directement les paramètres
+    password = params[:password]   # Correction pour extraire directement les paramètres
 
     raise ArgumentError, "Email and password are required" unless email.present? && password.present?
 

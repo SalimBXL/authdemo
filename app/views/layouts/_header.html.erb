@@ -9,8 +9,12 @@
     <div class="w3-container w3-cell w3-right">
         <table class="w3-table">
             <tr>
-                <td class="w3-right-align">150</td>
-                <td class="w3-left-align">Déviation</td>
+                <td class="w3-right-align">
+                    <%= Task.new_status_count %>
+                </td>
+                <td class="w3-left-align">
+                    <%= format_enum Task.statuses.key(0) %>
+                </td>
                 <td>&nbsp;</td><td>&nbsp;</td>
                 <td>
                     <span class="w3-tag w3-round w3-green w3-center">
@@ -23,8 +27,12 @@
             </tr>
 
             <tr>
-                <td class="w3-right-align">6</td>
-                <td class="w3-left-align">Autre</td>
+                <td class="w3-right-align">
+                    <%= Task.in_progress_status_count %>
+                </td>
+                <td class="w3-left-align">
+                    <%= format_enum Task.statuses.key(1) %>
+                </td>
                 <td>&nbsp;</td><td>&nbsp;</td>
                 <td>
                     <span class="w3-tag w3-round w3-orange w3-center">
@@ -37,8 +45,12 @@
             </tr>
 
             <tr>
-                <td class="w3-right-align">12</td>
-                <td class="w3-left-align">Divers</td>
+                <td class="w3-right-align">
+                    <%= Task.done_status_count %>
+                </td>
+                <td class="w3-left-align">
+                    <%= format_enum Task.statuses.key(2) %>
+                </td>
                 <td>&nbsp;</td><td>&nbsp;</td>
                 <td>
                     <span class="w3-tag w3-round w3-red w3-center">

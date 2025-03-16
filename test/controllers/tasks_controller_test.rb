@@ -20,7 +20,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create task" do
     assert_difference("Task.count") do
-      post tasks_url, params: { task: { description: @task.description, due_date: @task.due_date, level: @task.level, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+      post tasks_url, params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
     end
 
     assert_redirected_to task_url(Task.last)
@@ -37,7 +37,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, level: @task.level, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
+    patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, criticity: @task.criticity, name: @task.name, project_id: @task.project_id, remarks: @task.remarks, start_date: @task.start_date, status: @task.status, user_id: @task.user_id } }
     assert_redirected_to task_url(@task)
   end
 

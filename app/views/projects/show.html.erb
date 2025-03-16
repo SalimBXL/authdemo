@@ -20,14 +20,22 @@
     <tr class="w3-light-grey">
       <th>Name</th>
       <th>Assigned to</th>
+      <th>Level</th>
       <th>Status</th>
+      <th>Due date</th>
+      <th>Remain</th>
+      <th>Overdue</th>
     </tr>
   <thead>
   <% @project.tasks.each do |task| %>
     <tr>
       <td><%= task.name %></td>
       <td><%= task.user.full_name %></td>
-      <td><%= task.status %></td>
+      <td><small><%= format_level_color(task.level) unless task.status_done? %></small></td>
+      <td><%= format_enum task.status %></td>
+      <td><%= task.due_date %></td>
+      <td class="w3-center"><%= task.how_many_days_before_due_date? %></td>
+      <td class="w3-center w3-xlarge"><%= '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>'.html_safe if task.overdue? %></td>
     </tr>
   <% end %>
 </table>

@@ -65,11 +65,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_14_231546) do
     t.date "start_date"
     t.date "due_date"
     t.integer "project_id", null: false
-    t.integer "level", default: 0
+    t.integer "criticity", default: 0, null: false
+    t.integer "level"
     t.integer "user_id", null: false
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["criticity"], name: "index_tasks_on_criticity"
     t.index ["due_date"], name: "index_tasks_on_due_date"
     t.index ["level"], name: "index_tasks_on_level"
     t.index ["project_id"], name: "index_tasks_on_project_id"

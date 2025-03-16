@@ -16,6 +16,12 @@
   </td>
 
   <td>
-    <%= link_to "Show this project", project %>
+    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, project, class: "w3-button" %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_project_path(project), class: "w3-button" %>
+  </td>
+  <td>
+    <%= button_to '<i class="fa fa-trash"></i>'.html_safe, project, method: :delete, class: "w3-button" %>
   </td>
 </tr>
