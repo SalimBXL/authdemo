@@ -66,12 +66,12 @@ class Task < ApplicationRecord
   # Retourne le nombre de jours avant la date d'échéance ou 0 si la tâche est en retard
   def how_many_days_before_due_date?
     days_left = (due_date - Date.today).to_i
-    (due_date_after_start_date and not overdue? and not :done) ? days_left : 0
+    ((due_date_after_start_date and not overdue?) or status_done?) ? days_left : 0
   end
 
   def priority
     days = how_many_days_before_due_date? > 0 ? how_many_days_before_due_date? : 1
-    0.5 * criticity / days
+    status_done? ? 0 : (not overdue?) ? (0.1 * criticity / days).round(2) : 1
   end
 
   def set_level_from_criticity

@@ -17,7 +17,7 @@ module ApplicationHelper
 
     def get_level_color(level)
         colors = [ "w3-green", "w3-orange", "w3-red" ]
-        index = Task.levels[level]
+        index = Task.levels[level] || Task.levels[:low]
         colors[index]
     end
 

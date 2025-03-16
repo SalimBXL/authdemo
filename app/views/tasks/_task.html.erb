@@ -32,7 +32,11 @@
     <%= format_enum task.status %>
   </td>
 
-  <td>
+  <td class="w3-center">
+    <%= task.priority * 100.0 %>%
+  </td>
+
+  <td class="w3-center">
     <%= task.how_many_days_before_due_date? %>
   </td>
 

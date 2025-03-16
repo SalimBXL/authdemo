@@ -53,6 +53,6 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   def sign_in(user)
     raise ArgumentError, "User must have an email_address and password" unless user.email_address && user.password_digest
-    post session_url, params: { session: { email_address: user.email_address, password: "password" } }
+    post session_url, params: { email_address: user.email_address, password: "password" }
   end
 end
