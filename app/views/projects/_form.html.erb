@@ -10,22 +10,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="w3-card-4 w3-padding w3-margin w3-round w3-light-grey">
+    <p class="field">
+      <%= form.label :name %><br/>
+      <%= form.text_field :name %>
+    </p>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <p class="field">
+      <%= form.label :description %><br/>
+      <%= form.text_area :description %>
+    </p>
 
-  <div class="field">
-    <%= form.label :user_id, "User" %>
-    <%= form.collection_select :user_id, User.all, :id, :full_name, prompt: "Select a user" %>
-  </div>
+    <p class="field">
+      <%= form.label :user_id, "User" %><br/>
+      <%= form.collection_select :user_id, User.all, :id, :full_name, prompt: "Select a user" %>
+    </p>
 
-  <div class="actions">
-    <%= form.submit %>
+    <p class="actions">
+      <%= form.submit %>
+    </p>
   </div>
 <% end %>
