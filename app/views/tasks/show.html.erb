@@ -1,65 +1,41 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>
-  <%= @task.name %>
-</h1>
+<div class="w3-card-4 w3-margin">
 
-<p>
-  <%= @task.description %>
-</p>
+  <header class="w3-container w3-blue w3-cell-row">
+    <small class="w3-cell"><%= format_level_color(@task.level) unless @task.status_done? %></small>
+    <h1 class="w3-cell"><%= @task.name %></h1>
+  </header>
 
-<p>
-  <u>Remarks:</u>
-<%= @task.remarks %>
-</p>
+  <div class="w3-container">
+  
+    <p><%= @task.description %></p>
 
-<p>
-<strong>Start date:</strong>
-<%= @task.start_date %>
-</p>
+    <p><u>Remarks : </u> <%= @task.remarks %></p>
 
-<p>
-<strong>Due date:</strong>
-<%= @task.due_date %>
-</p>
+    <p><strong>Start date : </strong><%= @task.start_date %></p>
 
-<p>
-<strong>Days before due date:</strong>
-<%= @task.how_many_days_before_due_date? %>
-<%= "(overdue)" if @task.overdue? %>
-</p>
+    <p><strong>Due date : </strong><%= @task.due_date %></p>
 
-<p>
-<strong>Project:</strong>
-<%= @task.project.name %>
-</p>
+    <p><strong>Days before due date : </strong><%= @task.how_many_days_before_due_date? %> <%= "(overdue)" if @task.overdue? %></p>
 
-<p>
-<strong>Status</strong>
-<%= @task.status %>
-</p>
+    <p><strong>Project : </strong><%= @task.project.name %></p>
 
-<p>
-<strong>Criticity:</strong>
-<%= @task.criticity %>
-</p>
+    <p><strong>Status : </strong><%= @task.status %> <%= format_enum @task.status %></p>
 
-<p>
-<strong>Level:</strong>
-<%= @task.level %>
-</p>
+    <p><strong>Criticity : </strong><%= @task.criticity %></p>
 
-<p>
-<strong>User:</strong>
-<%= @task.user.full_name %>
-</p>
+    <p><strong>Level : </strong><%= @task.level %></p>
 
-<p>
-<strong>Status:</strong>
-<%= @task.status %>
-</p>
+    <p><strong>Status : </strong><%= @task.status %></p>
+  
+  </div>
 
+  <footer class="w3-container w3-blue">
+    <strong>User : </strong><%= @task.user.full_name %>
+  </footer>
 
+</div>
 
 <div>
   <%= link_to "Edit this task", edit_task_path(@task) %> |
@@ -67,3 +43,4 @@
 
   <%= button_to "Destroy this task", @task, method: :delete %>
 </div>
+

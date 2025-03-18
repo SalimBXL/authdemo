@@ -2,7 +2,9 @@
 
 <h1><i class="fa fa-envelope"></i> Projects</h1>
 
-<table id="projects" class="w3-table-all">
+<p><%= link_to '<i class="fa fa-plus"></i> New project'.html_safe, new_project_path, class: "w3-button" %></p>
+
+<table id="projects" class="w3-table-all w3-card-4">
   <thead>
     <tr class="w3-light-grey">
       <th>Name</th>
@@ -16,5 +18,4 @@
     <%= render project %>
   <% end %>
 </table>
-
-<%= link_to "New project", new_project_path %>
+<p><%= link_to '<i class="fa fa-plus"></i> New project'.html_safe, new_project_path, class: "w3-button" %></p>
