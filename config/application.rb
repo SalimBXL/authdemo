@@ -21,6 +21,8 @@ module Authdemo
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    config.time_zone = "Europe/Paris" # Remplacez par le fuseau horaire souhaité
+    config.active_record.default_timezone = :local # Stocke les heures dans le fuseau horaire local
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
