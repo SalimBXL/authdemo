@@ -1,16 +1,6 @@
 class Task < ApplicationRecord
-  enum :status, {
-    new: 0,
-    in_progress: 1,
-    done: 2,
-    delayed: 3
-  }, prefix: :status
-
-  enum :level, {
-    low: 0,
-    medium: 1,
-    high: 2
-  }, prefix: :level
+  before_validation :setDefaultDateValue
+  before_save :set_level_from_criticity
 
   belongs_to :project
   belongs_to :user
@@ -24,7 +14,20 @@ class Task < ApplicationRecord
   validates :criticity, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
   validate :due_date_after_start_date
 
-  before_save :set_level_from_criticity
+
+  enum :status, {
+    new: 0,
+    in_progress: 1,
+    done: 2,
+    delayed: 3
+  }, prefix: :status
+
+  enum :level, {
+    low: 0,
+    medium: 1,
+    high: 2
+  }, prefix: :level
+
 
   # Vérifie que la date d'échéance est postérieure ou égale à la date de début début
   def due_date_after_start_date
@@ -81,5 +84,12 @@ class Task < ApplicationRecord
     when 7..10 then :high
     else :low
     end
+  end
+
+  private
+
+  def setDefaultDateValue
+    self.start_date ||= Time.now.localtime
+    self.due_date ||= Time.now.localtime + 5.days
   end
 end

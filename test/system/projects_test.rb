@@ -1,7 +1,6 @@
 require "application_system_test_case"
 
 class ProjectsTest < ApplicationSystemTestCase
-
   # setup do
   #   @project = projects(:project_one)
   # end
