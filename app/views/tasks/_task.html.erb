@@ -1,4 +1,4 @@
-<tr id="<%= dom_id task %>" class="<%= get_level_color(task.level) unless task.status_done? %>">
+<tr id="<%= dom_id task %>" class="<%= get_level_color(task.level, true) unless task.status_done? %>">
 
   <td>
     <%= task.name %>

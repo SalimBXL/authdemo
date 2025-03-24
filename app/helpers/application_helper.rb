@@ -15,15 +15,16 @@ module ApplicationHelper
         text.length > 2 ? "#{text[0..0]}" : text
     end
 
-    def get_level_color(level)
+    def get_level_color(level, light = false)
         colors = [ "w3-green", "w3-orange", "w3-red" ]
+        light_colors = [ "w3-food-pistachio", "w3-food-mustard", "w3-food-salmon" ]
         index = Task.levels[level] || Task.levels[:low]
-        colors[index]
+        light ? light_colors[index] : colors[index]
     end
 
-    def format_level_color(level)
-        color = get_level_color(level)
-        "<span class='w3-tag w3-round w3-padding w3-green #{color}'>
+    def format_level_color(level, light = false)
+        color = get_level_color(level, light)
+        "<span class='w3-tag w3-round w3-padding #{color}'>
             #{format_enum level}
         </span>".html_safe
     end

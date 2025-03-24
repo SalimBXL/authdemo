@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="w3-card-4 w3-margin">
+<div class="w3-card-4 w3-margin w3-round">
 
-  <header class="w3-container w3-blue w3-cell-row">
-    <small class="w3-cell"><%= format_level_color(@task.level) unless @task.status_done? %></small>
+  <header class="w3-container w3-cell-row w3-round <%= get_level_color(@task.level) unless @task.status_done? %>">
+    <small class="w3-cell"><%= format_level_color(@task.level, true) unless @task.status_done? %></small>
     <h1 class="w3-cell"><%= @task.name %></h1>
   </header>
 
@@ -31,7 +31,7 @@
   
   </div>
 
-  <footer class="w3-container w3-blue">
+  <footer class="w3-container w3-round <%= get_level_color(@task.level) unless @task.status_done? %>">
     <strong>User : </strong><%= @task.user.full_name %>
   </footer>
 
