@@ -6,3 +6,19 @@ body {
 header {
     background-color: lightgrey;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
